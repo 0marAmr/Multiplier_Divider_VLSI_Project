@@ -1,0 +1,12 @@
+*.vscode
+*.exe
+*.log
+*.bat
+*.jou
+*.str
+*.wdf
+*.db
+*.pb
+*.wdb
+*.prj
+*.c

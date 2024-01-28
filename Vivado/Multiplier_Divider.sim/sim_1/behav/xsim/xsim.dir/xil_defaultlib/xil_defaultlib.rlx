@@ -1,0 +1,9 @@
+0.7
+2020.2
+Oct 14 2022
+05:20:55
+F:/Comm_Refrences/Fourth_year/First_Term/VLSI/porject/Vivado/Multiplier_Divider.sim/sim_1/behav/xsim/glbl.v,1665704903,verilog,,,,glbl,,,,,,,,
+F:/Comm_Refrences/Fourth_year/First_Term/VLSI/porject/full_adder.v,1706361653,verilog,,F:/Comm_Refrences/Fourth_year/First_Term/VLSI/porject/logic_cell.v,,full_adder,,,,,,,,
+F:/Comm_Refrences/Fourth_year/First_Term/VLSI/porject/logic_cell.v,1706448158,verilog,,F:/Comm_Refrences/Fourth_year/First_Term/VLSI/porject/mul_div.v,,logic_cell,,,,,,,,
+F:/Comm_Refrences/Fourth_year/First_Term/VLSI/porject/mul_div.v,1706456608,verilog,,F:/Comm_Refrences/Fourth_year/First_Term/VLSI/porject/mul_div_TB.v,,mul_div,,,,,,,,
+F:/Comm_Refrences/Fourth_year/First_Term/VLSI/porject/mul_div_TB.v,1706450051,verilog,,,,mul_div_TB,,,,,,,,
