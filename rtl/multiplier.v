@@ -19,9 +19,9 @@ module multiplier #(
                 for (j = 0; j < OPER1_LENGTH; j = j + 1) begin
                     if(j == 0) begin
                         multiplier_cell U0 (
+                            .Pin(1'b0),
                             .X(OperX[j]),
                             .Y(OperY[i]),
-                            .Pin(1'b0),
                             .Cin(1'b0),
                             .Pout(Pi[i][j]),
                             .Cout(Ci[i][j])
@@ -29,9 +29,9 @@ module multiplier #(
                     end
                     else begin
                         multiplier_cell U1 (
+                            .Pin(1'b0),
                             .X(OperX[j]),
                             .Y(OperY[i]),
-                            .Pin(1'b0),
                             .Cin(Ci[i][j-1]),
                             .Pout(Pi[i][j]),
                             .Cout(Ci[i][j])
@@ -44,9 +44,9 @@ module multiplier #(
                 for (j = 0; j < OPER1_LENGTH; j = j + 1) begin
                     if(j == 0) begin
                         multiplier_cell U2 (
+                            .Pin(1'b0),
                             .X(OperX[j]),
                             .Y(OperY[i]),
-                            .Pin(1'b0),
                             .Cin(1'b0),
                             .Pout(Pi[i][j]),
                             .Cout(Ci[i][j])
@@ -54,9 +54,9 @@ module multiplier #(
                     end
                     else begin
                         multiplier_cell U3 (
+                            .Pin(Pi[i+1][j-1]),
                             .X(OperX[j]),
                             .Y(OperY[i]),
-                            .Pin(Pi[i+1][j-1]),
                             .Cin(Ci[i][j-1]),
                             .Pout(Pi[i][j]),
                             .Cout(Ci[i][j])

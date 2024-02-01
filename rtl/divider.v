@@ -5,12 +5,14 @@ module divider #(
 )(
     input wire  [DEVIDENT_LENGTH-1:0]  OperA,
     input wire  [DIVISOR_LENGTH-1:0]   OperD,
-    output wire [DEVIDENT_LENGTH-1:0] Quotient
+    output wire [DEVIDENT_LENGTH-1:0] Quotient,
+    output wire [DIVISOR_LENGTH-1:0]  Remainder  
 );
 
     genvar i, j;
     wire [DIVISOR_LENGTH-1:0] Ri [DEVIDENT_LENGTH-1:0] ;
     wire [DIVISOR_LENGTH-1:0] Ci [DEVIDENT_LENGTH-1:0] ;
+    wire [DIVISOR_LENGTH-1:0]  Wi;
     generate
         for (i = DEVIDENT_LENGTH-1; i >= 0; i = i - 1) begin
             /*first row*/
@@ -69,6 +71,28 @@ module divider #(
             end
             /*assign the outputs*/
             assign  Quotient[i] = Ci[i][DIVISOR_LENGTH-1];
+        end
+        for (i = 0; i < DIVISOR_LENGTH; i = i + 1) begin
+           if(i==0) begin
+                multiplier_cell MC (
+                    .Pin(Ri[0][i]),
+                    .X(Ri[0][DIVISOR_LENGTH-1]),
+                    .Y(OperD[i]),
+                    .Cin(1'b0),
+                    .Pout(Remainder[i]),
+                    .Cout(Wi[i])
+                );
+           end
+           else begin
+                multiplier_cell MC (
+                    .Pin(Ri[0][i]),
+                    .X(Ri[0][DIVISOR_LENGTH-1]),
+                    .Y(OperD[i]),
+                    .Cin(Wi[i-1]),
+                    .Pout(Remainder[i]),
+                    .Cout(Wi[i])
+                );
+           end
         end
     endgenerate
        
